@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GradRate3000</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<h1>U.S. Graduation Rate Data 2019-2020</h1>
+
+<body>
+<nav><ul>
+    <li><a href="./about.html">About The Data</a></li> 
+</nav></ul>
+
+<div class="container">
+    <div class="queryBox">
+        <form action="/action_page.php">
+            <label for="queries">Choose a Query:</label>
+            <select name="queries" id="queries">
+              <option value="findGradRate">Find Cohort Graduation Rate</option>
+              <option value="findAllGradRates">Find All Graduation Rates</option>
+              <option value="findStateAverage">Find a State's Average Graduation Rate</option>
+              <option value="listDistricts">Find a list of school districts around a benchmark</option>
+              <option value="listStates">Find a list of states around a benchmark</option>
+            </select>
+            <br><br>
+            <input type="submit" value="Next">
+          </form>
+    </div>
+    
+    <figure style="text-align:right;">
+        <img src="https://media.licdn.com/dms/image/C5612AQGJJT-ipgKH7g/article-cover_image-shrink_600_2000/0/1542815486352?e=2147483647&v=beta&t=Reis_OaB4iP2Ge-IXV7EJ9mmklA9rEnOrZBP19vUWDY"/> 
+    </figure>
+</div>
+
+</body>
+
+
+</html>

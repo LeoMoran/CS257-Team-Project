@@ -1,0 +1,64 @@
+﻿Team Contract
+Graham Gordon, Leo Moran, Ian Mortensen
+Software Design - Prof. Amy Czismar Dalal, S23
+
+
+Goals Statement
+Through this project, we hope to not gain a better understanding of what it takes to be a software developer as well as strengthen our abilities to work well in a team environment. We hope that we will sharpen our programming skills in languages such as HTML, CSS, and JavaScript as well as soft skills, like communication and time management.
+
+
+Our Strengths
+Graham: I think that I am a very organized person and have an ability to create a strong structure for extended projects. I plan on utilizing these strengths to take the lead on scheduling and planning of the overall scaffolding of our project, especially the master document. I will remain committed to upholding a strong standard of cohesion, and help us all stay committed to our goals. 
+
+
+Ian: I am steady like the rock, and will continue to push forward until the task has been eliminated. I am very good at zoning in on specific errors or problems that arise and fixing them one by one. Coding-wise, I have a good foundation, but I have no prior experience working with git/gitHub or languages such as HTML, CSS, and JavaScript.
+
+
+Leo: I am a very flexible worker and am willing to change my work schedule if ever needed. I am never afraid to communicate with others and have a tendency to ask a lot of questions. I’m never ashamed to ask for help nor to provide it, and rarely take offense when proven wrong, but instead view it as a learning experience.
+
+
+Rules and Guidelines
+1. Meeting Times
+   1. The team plans to meet at least once a week, and 4-5 days prior to each deliverable.
+   2. Currently, our weekly meeting is set for 7pm Tuesdays.
+      1. Subject to change if necessary.
+   3. In general, the whole team should try to meet at least once a week, but two out of the three can meet if not all can attend at any point.
+   4. Meeting notes will be taken at each meeting and kept in a continued document. 
+2. Communication
+   1. We will communicate via text and in-person during our weekly meeting times.
+   2. We will maintain a document that contains all of our progress on the goals and tasks we have set out.
+   3. The team will also use the slack channel for important communication.
+   4. Lack of Communication
+      1. If a member is not communicating with their team, they are required to discuss why either during the team meeting or after class, whichever comes first.
+      2. If lack of communication gets dire, we will ask a third party (likely Amy) for assistance.
+3. Participation and Dividing Work
+   1. A ‘master document’ will exist that keeps track of all tasks relating to the project.
+      1. These will be sorted into categories: ‘to be started,’ ‘in progress,’ and ‘completed.’
+      2. Each task will be assigned to one, two, or all three members of the group
+      3. The majority of tasks will have deadlines which they must be completed by
+   2. Ideally work will be done in person with everyone engaged and present. 
+      1. When work is done on our own, members will be required to communicate with the team regarding progress made.
+   3. If a member of the team is incapable of completing their task on time, it is up for the team to work together in order to complete the task in a timely manner through one of the following:
+      1. Having that member swap tasks with another member
+      2. Having the other members of the team finish the task themselves. 
+      3. Through another means that is agreed upon within the group.
+   4. We will not set a hard rule for hours of work done a week, as the requirements will change throughout the term given varying workloads. 
+      1. We will continually check in with one another at each meeting regarding how we feel about our collective and individual workloads, and adjust accordingly.
+4. Decision Making
+   1. Important decisions will be made collectively, but if there are small decisions to be made within a member's role, they have the freedom to use their personal decision making framework. 
+   2. If there is no consensus after debating thoroughly, we will seek guidance from a third party and vote on the matter. 
+5. Toolbox
+   1. Google Drive will be used when working on text documents such as this, when working on presentations or any other types of documentations that requires the team to work on at the same time.
+   2. Slack will be our primary method of communication about important project objectives. We will also use messaging and email to communicate about things like meeting times. 
+   3. GitHub will be used as a way to organize the files that we will be working on within a repository.
+   4. Visual Studio Code will be used for software development.
+6. Conflict
+   1. In the unlikely event that a conflict arises, we will first attempt to resolve it among ourselves.
+   2. If we fail to resolve it, we will seek a third party to mediate. 
+
+
+Electronic Signatures
+04/09/2023
+Leo Moran
+Ian Mortensen
+Graham Gordon

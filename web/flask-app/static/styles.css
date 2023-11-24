@@ -1,0 +1,222 @@
+body{
+    background-color: lightgray;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+img {
+    height: 340px;
+    width: 500px;
+    border-radius: 8px;
+}
+
+div.container{
+    display: grid;
+    align-items: right;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 5px;
+}
+
+div.queryBox{
+    height: 340px;
+    width: 500px;
+    /*text-align: left;*/
+    border-radius: 8px;
+    overflow-y: auto;
+    margin: auto;
+    background-color: #8DA7BE;
+    text-align: center;
+}
+
+div.imageHolder{
+    height: 340px;
+    width: 500px;
+    border-radius: 8px;
+    margin: auto;
+}
+
+figure {
+    margin: auto;
+}
+
+nav {
+    text-align: left;
+}
+
+p, ul{
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+h2{
+    text-align: center;
+}
+
+h3{
+    text-align: left;
+    margin-left: 50px
+}
+
+nav ul {
+    border-top: 0px;
+    list-style-type: none;
+    overflow: hidden;
+    display: inline-block;
+    padding-left: 0;
+    padding-top: 0;
+    margin-top: 0px;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    background-color: white;
+    margin-left: 65px;
+}
+
+nav li {
+    float: left;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+nav li a {
+    display: block;
+    background-color: #8DA7BE;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    padding: 14px 16px;
+}
+
+nav li a:hover {
+    color: #8DA7BE;
+    background-color: white;
+}
+
+h1 {
+    margin-top: 0px;
+    background-color: rgb(102, 161, 102);
+    margin-bottom: 0px;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    border-radius: 8px;
+    text-align: center;
+}
+
+form{
+    margin-left: 50px;
+    text-align: left;
+}
+
+label{
+    text-align: center;
+}
+
+select{
+    border: 3px solid black;
+    border-radius: 8px;
+    color: #22223B;
+}
+
+input{
+    border: 3px solid black;
+    border-radius: 8px;
+    color: #22223B;
+    background-color: white;
+}
+
+input:hover{
+    color: white;
+    background-color: #22223B;   
+}
+
+/*Style borrowed from Amy's starter code, HTML/CSS Lab*/
+div.highlight{
+    background-color: rgb(102, 161, 102);
+    width: 300px;
+    border-radius: 8px;
+    float: right;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    margin-right: 40px;
+}
+
+/*
+Where I learned to create an animated Pie chart:
+Afif, Temani. “How to Create a Pie Chart Using Only CSS.” freeCodeCamp.Org, 
+23 May 2022, www.freecodecamp.org/news/css-only-pie-chart/.  */
+@property --p{
+    syntax: '<number>';
+    inherits: true;
+    initial-value: 1;
+}
+    
+.pie {
+    --p:20;
+    --b:22px;
+    --c:darkred;
+    --w:150px;
+    
+    width: var(--w);
+    aspect-ratio: 1;
+    position: relative;
+    display: inline-grid;
+    margin: 5px;
+    place-content: center;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.pie:before,.pie:after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+}
+
+/*Makes the circle stay after animating.*/
+.pie:before {
+    inset: 0;
+    background:
+    radial-gradient(farthest-side,var(--c) 98%,#0000) top/var(--b) var(--b) no-repeat,
+    conic-gradient(var(--c) calc(var(--p)*1%),#0000 0);
+    -webkit-mask: radial-gradient(farthest-side,#0000 calc(99% - var(--b)),#000 calc(100% - var(--b)));
+    mask: radial-gradient(farthest-side,#0000 calc(99% - var(--b)),#000 calc(100% - var(--b)));
+}
+
+/*Rounds corners*/
+.pie:after {
+    inset: calc(50% - var(--b)/2);
+    background: var(--c);
+    transform: rotate(calc(var(--p)*3.6deg)) translateY(calc(50% - var(--w)/2));
+}
+
+.animate {
+    animation: p 1s .5s both;
+}
+
+@keyframes p{
+    from{--p:0}
+}
+
+table{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: small;
+}
+
+tr, th, td{
+    border: 2px solid black;
+    border-radius: 8px;
+}
+
+th{
+    background-color: rgb(102, 161, 102);
+}
+
+th,td{
+    text-align: left;
+}
+
+td{
+    background-color: white;
+}

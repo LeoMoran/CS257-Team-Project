@@ -1,0 +1,52 @@
+﻿Project Proposal- Graham Gordon, Ian Mortensen, Leo Moran
+
+Cohort Graduation Rates
+
+Project Summary
+Using data regarding graduation rates of various cohorts of students throughout the United States, we seek to create a website that will allow users to easily access sorted data on these graduation rates for particular schools, states, and/or cohorts of students. 
+
+Dataset
+Graduation Data from 2019-2020 school year, U.S. Department of Education
+https://www2.ed.gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2019-20-long.csv 
+
+Metadata
+Official Documentation: https://www2.ed.gov/about/inits/ed/edfacts/data-files/acgr-sy2019-20-public-file-documentation.docx 
+Found through Google by searching for “US graduation rates by school”
+Downloaded 4/3/2023 as a csv/excel file. 
+Produced by the U.S. Department of Education through the EDFacts initiative
+This dataset is in the public domain for free use. 
+Covers the 2019-2020 school year in school districts throughout the entire U.S.
+
+Citation
+Four-Year Adjusted Cohort Graduation Rates - School Year 2019-20 EDFacts Data Documentation, U.S. Department of Education, Washington, DC: EDFacts. Retrieved 4/03/2023 from http://www.ed.gov/edfacts.
+
+Questions
+How does collective graduation rate vary based on state and school district locales?
+How does race affect graduation rate? Do levels of racial disparity fluctuate based on state or school district? 
+To what degree does economic background influence graduation rates?
+How does the political lean of states and individual school districts compare with graduation rates? (would require additional data)
+How do rural counties compare to urban counties in terms of graduation rates?
+Does the amount of funding that a school has and impact on their graduation rates, if so then by how much? (would require additional data)
+
+Our research questions will refer to three main fields in the dataset for data analysis: The cohort name, size of the cohort, and the graduation rate of the cohort for a specific school. We will also utilize the state and school district name fields for search queries. 
+Use of potential Additional data:
+For Question 4, we will use election data from either 2018 or 2020 and cross-compare it with our primary data set. 
+For Question 6, we will find data on the per student budget that school districts have and use that to support our data set.
+However, our primary concern will be focusing on the main data set to start with. We will incorporate secondary data if we find the ability to do so over the course of the term, through exploration and discussion with Amy. 
+
+User Roles
+User Role: School District Superintendent
+While the superintendent would be concerned with questions 2 and 3, they would be most interested in question 1, which asks how the collective graduation rate varies based on school district. 
+The goal of the superintendent would be to examine how their school compares to other school districts in the nation.
+User Role: Teacher looking for work
+This teacher would be concerned with questions 1 and 5, as they are looking for a new place to work (and potentially live).
+Their main goal would be finding a school with a strong academic culture in their region. 
+User Role: Parent of child identifying with a historically marginalized race.  
+This parent would be most interested in investigating questions 1 and 2, which deal with the effects of race and geography on graduation rate. 
+The goal of this parent would be to find school districts with low levels of racial disparity and relatively high graduation rates compared to other school districts. 
+User Role: Economics Professor 
+The economics professor would be most interested in scrutinizing question 3, which pertains to the effects of economic background on graduation rate. 
+Their goal would be to derive percentage point differences in graduation rate between economically disadvantaged students and district averages in order to  support a research project they are currently undergoing. 
+User Role: Politician/government official
+This user role would be most intent on answering questions 1 and 6, which concern variations in graduation rates due to geography and funding.
+The goal of a politician/government official (who is actually doing their job) would be to see which school districts need more funds and energy devoted to improving their education system.

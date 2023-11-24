@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GradRate3000</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}" />
+</head>
+<h1>U.S. Graduation Rate Data 2019-2020</h1>
+
+<body>
+    <nav><ul>
+        <li><a href="{{url_for('Home')}}">Home</a></li>
+        <li><a href="{{url_for('about')}}">About The Data</a></li> 
+    </nav></ul>
+
+<div class="container">
+    <!-- Left query box for storing input. -->
+    <!-- Uses jinja conditionals to reflect the chosen query -->
+    <div class="queryBox">
+        
+        <h2>Your Input:</h2>
+        {% if query == 'findGradRate' %}
+        <h3>Query: Find Cohort Graduation Rate</h3>
+        <h3>School District: {{district}} [{{state}}]</h3>
+        <h3>Cohort: {{cohort}}</h3>
+        {% elif query == 'findAllGradRates'%}
+        <h3>Query: Find All Graduation Rates</h3>
+        <h3>School District: {{district}} [{{state}}]</h3>
+        {% elif query == 'findStateAverage' %}
+        <h3>Query: Find State Average Graduation Rate</h3>
+        <h3>State: {{state}}</h3>
+        <h3>Cohort: {{cohort}}</h3>
+        {% elif query == 'orderDistricts' %}
+        <h3>Query: Ordered List of School Districts</h3>
+        <h3>Cohort: {{cohort}}</h3>
+        <h3>Cutoff: {{cutoff}}</h3>
+        <h3>List Length: {{listSize}}</h3>
+        {% elif query == 'orderStates' %}
+        <h3>Query: Ordered List of States</h3>
+        <h3>Cohort: {{cohort}}</h3>
+        <h3>Cutoff: {{cutoff}}</h3>
+        <h3>List Length: {{listSize}}</h3>
+
+        {% endif %}
+        <!-- Allows the user to return to the starting page -->
+        <form action="/">
+            <input type="submit" value="New Query">
+        </form>
+    </div>
+
+    <div class="queryBox">
+        <!-- Second display box, for rendering results of the query -->
+        {% if query == "findGradRate" %}
+        <!-- Uses a donut animation to display a graduation rate -->
+        <h2>Graduation Rate:</h2>
+        <div class="pie animate no-round" style="--p:{{rate}};--c:forestgreen;"> {{rate}}%</div>
+        {% elif query == "findAllGradRates" %}
+        <!-- Table displays results for all cohorts -->
+        <table>
+            <tr>
+                <th>Cohort</th>
+                <th>Graduation Rate</th>
+            </tr>
+            {% for rate in results %}
+            <tr>
+                <td>{{rate[0]}}</td>
+                <td>{{rate[1]}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        {% elif query == "findStateAverage" %}
+        <!-- Again, uses donut animation to display a single rate -->
+        <h2>{{state}}'s Average Graduation Rate:</h2>
+        <div class="pie animate no-round" style="--p:{{results}};--c:forestgreen;"> {{results}}%</div>
+
+        <!-- The following two blocks each use a table to show their ordered lists
+        of graduation rates, both for districts and states -->
+        {% elif query == "orderDistricts" %}
+        <h2>Districts following {{cutoff}}%: </h2>
+        <table>
+            <tr>
+                <th>District</th>
+                <th>Graduation Rate</th>
+            </tr>
+            {% for rate in results %}
+            <tr>
+                <td>{{rate[0]}} [{{rate[2]}}]</td>
+                <td>{{rate[1]}}%</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        {% elif query == "orderStates" %}
+        <h2>States following {{cutoff}}%: </h2>
+        <table>
+            <tr>
+                <th>State</th>
+                <th>Graduation Rate</th>
+            </tr>
+            {% for rate in results %}
+            <tr>
+                <td>{{rate[0]}}</td>
+                <td>{{rate[1]}}%</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        {% endif %}
+
+
+
+    </div>
+</div>
+
+</body>
+
+
+</html>

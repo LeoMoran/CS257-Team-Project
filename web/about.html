@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>GradRate3000</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<h1>About The Data</h1>
+
+<body>
+<nav><ul>
+    <li><a href="./home.html">Home</a></li> 
+</nav></ul>
+
+<div class="highlight">
+    <h3>Citations and Documentation</h3>
+        <p><a href=
+        "https://www2.ed.gov/about/inits/ed/edfacts/data-files/acgr-sy2019-20-public-file-documentation.docx">Official Documentation</a>
+        <br><a href=
+        https://www2.ed.gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2019-20-long.csv>Original Dataset</a>
+        <br><a href=
+        https://1drv.ms/x/s!Avl0RlM_qUyQ1EKQWZpWo-LtfVQe>Modified Dataset</a></p>
+</div>
+
+<h2>Data Origins</h2>
+<p>Our dataset comes from the U.S. Department of Education, specifically the EDFacts initiative. 
+    They collect graduation rate data from school districts throughout the country, and we are using
+    data from the 2019-2020 school year. For each school district that provided data, EDFacts recorded
+    their state, district name, and a graduation rate for each of 12 student cohorts as well as the size 
+    of those cohorts. 
+</p>
+
+<h2>Modifications to the Original Data</h2>
+<ul>
+    <li>
+        Initially, the CSV data file had 5 extraneous columns. 
+        To begin with, we deleted the year and date fields, 
+        since they remained constant throughout the entire dataset 
+        with the year 2019-2020 and the date 19MAY21. 
+        Then, we also deleted 3 IDs associated with states and districts, 
+        as we already had the state names and the district names. 
+    </li>
+    <li>
+        Since the “rate” field of the data was often given as a range 
+        (ex. “50-60” or “GE50”) for ease of look-up, we added a column 
+        with a single converted rate stored that could be stored as a float. 
+        For ranges such as “50-60” we took the average, storing 55.0 as 
+        the graduation rate. Similarly for rates “GE50” we stored 75.0. 
+    </li>
+    <li>
+        Some graduation rates were privacy suppressed because they were not
+        large enough cohorts for anonymity. In these cases, 
+        we set our converted rate to 0.0. Note that we did not include 
+        any of the privacy-suppressed values in our average calculations. 
+    </li>
+</ul>
+
+<h2>Data Limitations</h2>
+<p style="margin-left: 30px;">The only two states/territories that are not recorded in their entirety are Texas and Illinois, 
+    since Texas never agreed to provide their data while 
+    Illinois provided data with too many errors. Georgia also had issues with their data submission, but 
+    only the Foster Care Students cohort was impacted, and thus not included in the data.  </p>
+</body>
+
+
+</html>

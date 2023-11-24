@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GradRate3000</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}" />
+</head>
+<h1>U.S. Graduation Rate Data 2019-2020</h1>
+
+<body>
+<nav><ul>
+    <li><a href="{{url_for('Home')}}">Home</a></li>
+    <li><a href="{{url_for('about')}}">About The Data</a></li> 
+</nav></ul>
+
+<div class="container">
+    <div class="queryBox">
+
+        {% if query=="none" %}
+        <!-- Default case, presents the choice of queries using a drop-down menu.
+        Routes to the same page, but with a new template that will ask for input.-->
+        <h2>Choose a Query:</h2>
+        <form action="/form" method="post">
+        <label for="queries"></label>
+        <br>
+        <select name="queries" id="queries">
+            <option value="findGradRate">Find Cohort Graduation Rate</option>
+            <option value="findAllGradRates">Find All Graduation Rates</option>
+            <option value="findStateAverage">Find a State's Average Graduation Rate</option>
+            <option value="orderDistricts">Find an ordered list of school districts around a benchmark</option>
+            <option value="orderStates">Find an ordered list of states around a benchmark</option>
+        </select>
+        <br><br>
+        <input type="submit" value="Next">
+        </form>
+
+        <!-- Parameter pages follow using conditionals depending on selected query. -->
+        {% elif query=="findGradRate" %}
+        <h2>Query: Find Cohort Graduation Rate</h2>
+        <form action="/results" method="post">
+            <label for="cohort">Choose a Cohort:</label>
+            <select name="cohort" id="cohort">
+                <option value="ALL">All students</option>
+                <option value="CWD">Children with disabilities</option>
+                <option value="ECD">Economically disadvantaged</option>
+                <option value="FCS">Foster Care</option>
+                <option value="HOM">Homeless Enrolled</option>
+                <option value="LEP">English Learner</option>
+                <option value="MAM">American Indian/Alaska Native</option>
+                <option value="MAS">Asian/Pacific Islander</option>
+                <option value="MBL">Black</option>
+                <option value="MHI">Hispanic/Latino</option>                   
+                <option value="MTR">Two or More Races/Multiracial</option>
+                <option value="MWH">White</option>
+            </select>
+            <!-- non-visible input box that passes the chosen query to the webapp -->
+            <input type="hidden" name="queryType" value="findGradRate"/>
+                <br><br>
+            <label for="myDistrict">Choose your school district:</label>
+            <input list="districtList" id="myDistrict" name="myDistrict" placeholder="type here..." />
+            <datalist id="districtList">
+                {% for district in districts %}
+                <option value="{{district}}">
+                {% endfor %}
+            </datalist><br><br>
+            <input type="submit" value="Next">
+        </form>
+
+        {% elif query=="findAllGradRates" %}
+        <h2>Query: Find All Graduation Rates</h2>
+        <form action="/results" method="post">
+            <input type="hidden" name="queryType" value="findAllGradRates"/>
+            <label for="myDistrict">Choose your school district:</label>
+            <input list="districtList" id="myDistrict" name="myDistrict" placeholder="type here..." />
+            <datalist id="districtList">
+                {% for district in districts %}
+                <option value="{{district}}">
+                {% endfor %}
+            </datalist><br><br>
+            <input type="submit" value="Next">
+        </form>
+
+        {% elif query=="findStateAverage" %}
+        <h2>Query: Find State Average Graduation Rate</h2>
+        <form action="/results" method="post">
+            <label for="cohort">Choose a Cohort:</label>
+            <select name="cohort" id="cohort">
+                <option value="ALL">All students</option>
+                <option value="CWD">Children with disabilities</option>
+                <option value="ECD">Economically disadvantaged</option>
+                <option value="FCS">Foster Care</option>
+                <option value="HOM">Homeless Enrolled</option>
+                <option value="LEP">English Learner</option>
+                <option value="MAM">American Indian/Alaska Native</option>
+                <option value="MAS">Asian/Pacific Islander</option>
+                <option value="MBL">Black</option>
+                <option value="MHI">Hispanic/Latino</option>                   
+                <option value="MTR">Two or More Races/Multiracial</option>
+                <option value="MWH">White</option>
+            </select>
+            <input type="hidden" name="queryType" value="findStateAverage"/>
+                <br><br>
+            <label for="myState">Choose your state:</label>
+            <input list="stateList" id="myState" name="myState" placeholder="type here..." />
+            <datalist id="stateList">
+                {% for state in states %}
+                <option value="{{state}}">
+                {% endfor %}
+            </datalist><br><br>
+            <input type="submit" value="Next">
+        </form>
+
+        {% elif query=="orderDistricts" %}
+        <h2>Query: Ordered List of School Districts</h2>
+        <form action="/results" method="post">
+            <label for="cohort">Choose a Cohort:</label>
+            <select name="cohort" id="cohort">
+                <option value="ALL">All students</option>
+                <option value="CWD">Children with disabilities</option>
+                <option value="ECD">Economically disadvantaged</option>
+                <option value="FCS">Foster Care</option>
+                <option value="HOM">Homeless Enrolled</option>
+                <option value="LEP">English Learner</option>
+                <option value="MAM">American Indian/Alaska Native</option>
+                <option value="MAS">Asian/Pacific Islander</option>
+                <option value="MBL">Black</option>
+                <option value="MHI">Hispanic/Latino</option>                   
+                <option value="MTR">Two or More Races/Multiracial</option>
+                <option value="MWH">White</option>
+            </select>
+            <input type="hidden" name="queryType" value="orderDistricts"/>
+                <br><br>
+            <label for="order">Choose Order of Districts:</label>
+            <select name="order" id="order">
+                <option value = "up">Ascending</option>
+                <option value = "down">Descending</option>
+            </select><br><br>
+            <label for="cutoff">Cutoff Graduation Rate:</label>
+            <input type="text" id="cutoff" name="cutoff"><br><br>
+            <label for="listSize">Display Limit:</label>
+            <input type="text" id="listSize" name="listSize"><br><br>
+            <input type="submit" value="Next">
+        </form>
+
+        {% elif query=="orderStates" %}
+        <h2>Ordered List of States</h2>
+        <form action="/results" method="post">
+            <label for="cohort">Choose a Cohort:</label>
+            <select name="cohort" id="cohort">
+                <option value="ALL">All students</option>
+                <option value="CWD">Children with disabilities</option>
+                <option value="ECD">Economically disadvantaged</option>
+                <option value="FCS">Foster Care</option>
+                <option value="HOM">Homeless Enrolled</option>
+                <option value="LEP">English Learner</option>
+                <option value="MAM">American Indian/Alaska Native</option>
+                <option value="MAS">Asian/Pacific Islander</option>
+                <option value="MBL">Black</option>
+                <option value="MHI">Hispanic/Latino</option>                   
+                <option value="MTR">Two or More Races/Multiracial</option>
+                <option value="MWH">White</option>
+            </select>
+            <input type="hidden" name="queryType" value="orderStates"/>
+                <br><br>
+            <label for="order">Choose Order of States:</label>
+            <select name="order" id="order">
+                <option value = "up">Ascending</option>
+                <option value = "down">Descending</option>
+            </select><br><br>
+            <label for="cutoff">Cutoff Graduation Rate:</label>
+            <input type="text" id="cutoff" name="cutoff"><br><br>
+            <label for="listSize">Display Limit:</label>
+            <input type="text" id="listSize" name="listSize"><br><br>
+            <input type="submit" value="Next">
+        </form>
+        {% endif %}
+
+        <!-- If an invalid parameter is entered, displays an error message.
+        Also helps to guard from SQL -->
+        {% if error==True and query=="findGradRate"%}
+            <h3 style="color: red;">Error: No data for the given district and cohort. </h3>
+        {% elif error==True and query=="findAllGradRates"%}
+            <h3 style="color: red;">Error: The given district name is invalid.</h3>
+        {% elif error==True and query=="findStateAverage"%}
+            <h3 style="color: red;">Error: The given state name is invalid.</h3>
+        {% elif error==True %}
+        <h3 style="color: red;">Error: Invalid cutoff/list length.</h3>
+        {% endif %}
+    </div>
+
+    <div class="imageHolder">
+        <img src="https://media.licdn.com/dms/image/C5612AQGJJT-ipgKH7g/article-cover_image-shrink_600_2000/0/1542815486352?e=2147483647&v=beta&t=Reis_OaB4iP2Ge-IXV7EJ9mmklA9rEnOrZBP19vUWDY"/> 
+    </div>
+</div>
+
+</body>
+</html>
